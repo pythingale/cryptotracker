@@ -1,7 +1,13 @@
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
+from rest_framework import viewsets
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from .models import Cryptocurrency
+from .serializers import CryptocurrencySerializer
 from .tasks import fetch_cryptocurrencies
 
 
@@ -31,3 +37,13 @@ class CryptocurrencyUpdateView(APIView):
                 "total_cryptocurrencies": result_data["total_cryptos"],
             },
         )
+
+
+class CryptocurrencyViewSet(viewsets.ModelViewSet):
+    queryset = Cryptocurrency.objects.all()
+    serializer_class = CryptocurrencySerializer
+    permission_classes = [IsAuthenticated]
+    pagination_class = PageNumberPagination
+    filter_backends = [filters.SearchFilter, DjangoFilterBackend]
+    search_fields = ["name", "symbol", "description"]
+    filterset_fields = ["name", "symbol"]

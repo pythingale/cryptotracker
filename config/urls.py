@@ -16,6 +16,14 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 from cryptotrackr.users.api.views import CustomLoginView
+from rest_framework.routers import DefaultRouter
+from cryptocurrencies.views import CryptocurrencyViewSet
+
+router = DefaultRouter()
+
+router.register(
+    r"api/cryptocurrencies", CryptocurrencyViewSet, basename="cryptocurrency"
+)
 
 
 urlpatterns = [
@@ -31,7 +39,7 @@ urlpatterns = [
     path("users/", include("cryptotrackr.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     path(
-        "update-cryptocurrencies/",
+        "api/update-cryptocurrencies/",
         CryptocurrencyUpdateView.as_view(),
         name="update_cryptocurrencies",
     ),
@@ -59,6 +67,8 @@ urlpatterns += [
         name="api-docs",
     ),
 ]
+
+urlpatterns += router.urls
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit

@@ -6,4 +6,4 @@ from .models import Cryptocurrency
 class CryptocurrencySerializer(serializers.ModelSerializer):
     class Meta:
         model = Cryptocurrency
-        fields = ["name", "symbol"]
+        fields = ["id", "coin_id", "name", "symbol", "description"]
