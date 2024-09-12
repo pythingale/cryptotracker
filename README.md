@@ -2,6 +2,10 @@
 
 This project is focused on building a robust system for tracking cryptocurrency prices and providing comprehensive RESTful APIs. The core functionalities include storing and managing historical cryptocurrency prices in a PostgreSQL database, performing advanced data analysis such as daily returns and Relative Strength Index (RSI) calculations, and offering detailed cryptocurrency data through various API endpoints.
 
+At the first setep please  copy these lines to django container:
+export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
+export CELERY_BROKER_URL=redis://localhost:6379/0
+
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
