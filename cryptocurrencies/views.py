@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 
 from .models import Cryptocurrency
 from .serializers import CryptocurrencySerializer
-from .tasks import fetch_cryptocurrencies
+from .tasks.fetch_cryptocurrencies_tasks import fetch_cryptocurrencies
 
 
 class CryptocurrencyUpdateView(APIView):

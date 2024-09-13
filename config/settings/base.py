@@ -84,6 +84,8 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "drf_spectacular",
     "pandas",
+    "numpy",
+    "aiohttp",
     "dj_rest_auth",
     "rest_framework_simplejwt",
     "django_filters",

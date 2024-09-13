@@ -1,0 +1,2 @@
+from .fetch_cryptocurrencies_tasks import fetch_cryptocurrencies
+from .fetch_historical_prices_tasks import fetch_historical_prices

@@ -11,6 +11,9 @@ class Cryptocurrency(models.Model):
         return self.name
 
 
+from django.db import models
+
+
 class HistoricalPrice(models.Model):
     cryptocurrency = models.ForeignKey(
         Cryptocurrency,
@@ -18,12 +21,12 @@ class HistoricalPrice(models.Model):
         related_name="prices",
     )
     date = models.DateField()
-    open_price = models.DecimalField(max_digits=20, decimal_places=2)
-    high_price = models.DecimalField(max_digits=20, decimal_places=2)
-    low_price = models.DecimalField(max_digits=20, decimal_places=2)
-    close_price = models.DecimalField(max_digits=20, decimal_places=2)
-    volume_from = models.DecimalField(max_digits=20, decimal_places=4)
-    volume_to = models.DecimalField(max_digits=20, decimal_places=4)
+    open_price = models.DecimalField(max_digits=20, decimal_places=4)
+    high_price = models.DecimalField(max_digits=20, decimal_places=4)
+    low_price = models.DecimalField(max_digits=20, decimal_places=4)
+    close_price = models.DecimalField(max_digits=20, decimal_places=4)
+    volume_from = models.DecimalField(max_digits=30, decimal_places=10)
+    volume_to = models.DecimalField(max_digits=30, decimal_places=10)
 
     class Meta:
         unique_together = ["cryptocurrency", "date"]
