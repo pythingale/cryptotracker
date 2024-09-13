@@ -6,9 +6,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Cryptocurrency
-from .serializers import CryptocurrencySerializer
-from .tasks.fetch_cryptocurrencies_tasks import fetch_cryptocurrencies
+from cryptocurrencies.models import Cryptocurrency
+from cryptocurrencies.serializers import CryptocurrencySerializer
+from cryptocurrencies.tasks.fetch_cryptocurrencies_tasks import fetch_cryptocurrencies
 
 
 class CryptocurrencyUpdateView(APIView):

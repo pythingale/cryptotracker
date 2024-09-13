@@ -10,19 +10,25 @@ from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView
 from drf_spectacular.views import SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
-from cryptocurrencies.views import CryptocurrencyUpdateView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
 from cryptotrackr.users.api.views import CustomLoginView
-from rest_framework.routers import DefaultRouter
-from cryptocurrencies.views import CryptocurrencyViewSet
+from rest_framework import routers
+from cryptocurrencies.views.cryptocurrency_update_view import (
+    CryptocurrencyViewSet,
+    CryptocurrencyUpdateView,
+)
+from cryptocurrencies.views.historical_price_view import HistoricalPriceViewSet
 
-router = DefaultRouter()
+router = routers.DefaultRouter()
 
 router.register(
     r"api/cryptocurrencies", CryptocurrencyViewSet, basename="cryptocurrency"
+)
+router.register(
+    r"api/historical-data", HistoricalPriceViewSet, basename="historical-prices"
 )
 
 

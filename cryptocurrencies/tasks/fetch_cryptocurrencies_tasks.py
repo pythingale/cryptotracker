@@ -26,7 +26,6 @@ def fetch_cryptocurrencies():
         description = row.get("Description", "")
 
         try:
-            # Use get_or_create to check if the coin_id already exists
             crypto, created = Cryptocurrency.objects.get_or_create(
                 coin_id=coin_id,
                 defaults={

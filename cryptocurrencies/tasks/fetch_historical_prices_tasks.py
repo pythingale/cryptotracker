@@ -15,9 +15,8 @@ from cryptocurrencies.models import Cryptocurrency
 from cryptocurrencies.models import HistoricalPrice
 
 API_KEY = "434606a7969df44cfeec988681132381bdbe46352e675acffb2bd11bd7c06a20"
-HTTP_STATUS_OK = 200  # Replace magic value 200
+HTTP_STATUS_OK = 200
 
-# Set up logging
 logger = logging.getLogger(__name__)
 
 
